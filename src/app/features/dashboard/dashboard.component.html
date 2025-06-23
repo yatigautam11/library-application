@@ -1,0 +1,25 @@
+<!-- Category Cards Row -->
+
+<div *ngIf="showWelcomeMessage" class="welcome-message">
+  WELCOME TO PUNS & PAGES
+</div>
+
+<div class="category-container">
+  <div
+    class="category-card"
+    *ngFor="let category of uniqueCategories"
+    [class.active]="selectedCategory === category"
+    (click)="toggleCategory(category)"
+  >
+    {{ category }}
+  </div>
+</div>
+
+<!-- Book Grid -->
+<div *ngIf="selectedCategory" class="books-dropdown">
+  <div class="book-item" *ngFor="let book of getBooksByCategory(selectedCategory)">
+    <img [src]="book.image" [alt]="book.alt || book.name" />
+    <p>{{ book.name }}</p>
+    <button (click)="addBookToLibrary(book.id)">Add to My Library</button>
+  </div>
+</div>

@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
+  
   title = 'library-application';
+  currentYear: number = new Date().getFullYear();
+
+  
 }

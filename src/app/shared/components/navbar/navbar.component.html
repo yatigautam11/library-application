@@ -1,0 +1,13 @@
+<nav class="navbar" *ngIf="isLoggedIn">
+  <div class="brand">📚 Puns & Pages</div>
+
+  <div class="nav-links">
+    <a routerLink="/dashboard" routerLinkActive="active">DASHBOARD</a>
+    <a routerLink="/my-library" routerLinkActive="active">MY LIBRARY</a>
+    <a *ngIf="isAdmin" routerLink="/admin/books">📚 Book Admin</a>
+  </div>
+
+  <div class="logout-link">
+    <a (click)="logout()">LOGOUT</a>
+  </div>
+</nav>

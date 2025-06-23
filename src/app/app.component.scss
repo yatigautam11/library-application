@@ -1,0 +1,35 @@
+.main-header {
+  background: linear-gradient(90deg, #6a1b9a, #8e24aa);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links .active-link {
+  color: #ffd54f;
+  border-bottom: 2px solid #ffd54f;
+}
+
+.logout-btn {
+  font-size: 0.9rem;
+}
+
+.app-footer {
+  background-color: #f3f3f3;
+  color: #555;
+  font-size: 0.85rem;
+  border-top: 1px solid #ddd;
+}

@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* styles.scss */
+:root {
+  --primary-color: #534CC5;
+  --primary-hover: #3e38a0;
+  --light-bg: #f4f4ff;
+  --text-dark: #333;
+  --border-color: #ddd;
+}

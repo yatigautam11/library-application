@@ -1,0 +1,337 @@
+[
+  {
+    "id": 1,
+    "name": "Sapiens: A Brief History of Humankind",
+    "category": "Historical",
+     "author":"",
+    "image": "assets/images/sapiens.jpeg",
+    "alt": "Cover of Sapiens",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 2,
+    "name": "Guns, Germs, and Steel",
+    "category": "Historical",
+     "author":"",
+    "image": "assets/images/guns-germs-steel.jpeg",
+    "alt": "Cover of Guns, Germs, and Steel",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 3,
+    "name": "The Silk Roads",
+    "category": "Historical",
+     "author":"",
+    "image": "assets/images/silk-roads.jpeg",
+    "alt": "Cover of The Silk Roads",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 4,
+    "name": "A People's History of the United States",
+    "category": "Historical",
+     "author":"",
+    "image": "assets/images/peoples-history.jpeg",
+    "alt": "Cover of A People's History",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 5,
+    "name": "The Diary of Anne Frank",
+    "category": "Historical",
+     "author":"",
+    "image": "assets/images/anne-frank.jpeg",
+    "alt": "Cover of The Diary of Anne Frank",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+
+  {
+    "id": 6,
+    "name": "To Kill a Mockingbird",
+    "category": "Fictional",
+     "author":"",
+    "image": "assets/images/mockingbird.jpeg",
+    "alt": "Cover of To Kill a Mockingbird",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 7,
+    "name": "Pride and Prejudice",
+    "category": "Fictional",
+     "author":"",
+    "image": "assets/images/pride-prejudice.jpeg",
+    "alt": "Cover of Pride and Prejudice",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 8,
+    "name": "The Great Gatsby",
+    "category": "Fictional",
+     "author":"",
+    "image": "assets/images/great-gatsby.jpeg",
+    "alt": "Cover of The Great Gatsby",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 9,
+    "name": "1984",
+    "category": "Fictional",
+     "author":"",
+    "image": "assets/images/1984.jpeg",
+    "alt": "Cover of 1984",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 10,
+    "name": "The Catcher in the Rye",
+    "category": "Fictional",
+     "author":"",
+    "image": "assets/images/catcher-rye.jpeg",
+    "alt": "Cover of The Catcher in the Rye",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+
+  {
+    "id": 11,
+    "name": "Dune",
+    "category": "Science Fiction",
+     "author":"",
+    "image": "assets/images/dune.jpeg",
+    "alt": "Cover of Dune",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 12,
+    "name": "Ender's Game",
+    "category": "Science Fiction",
+     "author":"",
+    "image": "assets/images/enders-game.jpeg",
+    "alt": "Cover of Ender's Game",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 13,
+    "name": "Neuromancer",
+    "category": "Science Fiction",
+     "author":"",
+    "image": "assets/images/neuromancer.jpeg",
+    "alt": "Cover of Neuromancer",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 14,
+    "name": "The Martian",
+    "category": "Science Fiction",
+     "author":"",
+    "image": "assets/images/martian.jpeg",
+    "alt": "Cover of The Martian",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 15,
+    "name": "Foundation",
+    "category": "Science Fiction",
+     "author":"",
+    "image": "assets/images/foundation.jpeg",
+    "alt": "Cover of Foundation",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+
+  {
+    "id": 16,
+    "name": "The Girl with the Dragon Tattoo",
+    "category": "Mystery",
+    "image": "assets/images/dragon-tattoo.jpeg",
+    "alt": "Cover of The Girl with the Dragon Tattoo",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 17,
+    "name": "Gone Girl",
+    "category": "Mystery",
+     "author":"",
+    "image": "assets/images/gone-girl.jpeg",
+    "alt": "Cover of Gone Girl",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 18,
+    "name": "Big Little Lies",
+    "category": "Mystery",
+     "author":"",
+    "image": "assets/images/big-little-lies.jpeg",
+    "alt": "Cover of Big Little Lies",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 19,
+    "name": "The Da Vinci Code",
+    "category": "Mystery",
+     "author":"",
+    "image": "assets/images/da-vinci-code.jpeg",
+    "alt": "Cover of The Da Vinci Code",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 20,
+    "name": "In the Woods",
+    "category": "Mystery",
+     "author":"",
+    "image": "assets/images/in-the-woods.jpeg",
+    "alt": "Cover of In the Woods",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+
+  {
+    "id": 21,
+    "name": "The Story of My Life",
+    "category": "Biography",
+     "author":"",
+    "image": "assets/images/story-of-my-life.jpeg",
+    "alt": "Cover of The Story of My Life by Helen Keller",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 22,
+    "name": "Long Walk to Freedom",
+    "category": "Biography",
+     "author":"",
+    "image": "assets/images/long-walk.jpeg",
+    "alt": "Cover of Long Walk to Freedom by Nelson Mandela",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 23,
+    "name": "Steve Jobs",
+    "category": "Biography",
+     "author":"",
+    "image": "assets/images/steve-jobs.jpeg",
+    "alt": "Cover of Steve Jobs biography",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 24,
+    "name": "Einstein: His Life and Universe",
+    "category": "Biography",
+     "author":"",
+    "image": "assets/images/einstein.jpeg",
+    "alt": "Cover of Einstein biography",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 25,
+    "name": "The Wright Brothers",
+    "category": "Biography",
+     "author":"",
+    "image": "assets/images/wright-brothers.jpeg",
+    "alt": "Cover of The Wright Brothers",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+
+  {
+    "id": 26,
+    "name": "The Book Thief",
+    "category": "Fictional",
+     "author":"",
+    "image": "assets/images/book-thief.jpeg",
+    "alt": "Cover of The Book Thief",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 27,
+    "name": "Brave New World",
+    "category": "Fictional",
+     "author":"",
+    "image": "assets/images/brave-new-world.jpeg",
+    "alt": "Cover of Brave New World",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 28,
+    "name": "Sherlock Holmes: The Complete Novels",
+    "category": "Mystery",
+     "author":"",
+    "image": "assets/images/sherlock.jpeg",
+    "alt": "Cover of Sherlock Holmes",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 29,
+    "name": "Astrophysics for People in a Hurry",
+    "category": "Science Fiction",
+     "author":"",
+    "image": "assets/images/astrophysics.jpeg",
+    "alt": "Cover of Astrophysics for People in a Hurry",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  },
+  {
+    "id": 30,
+    "name": "When Breath Becomes Air",
+    "category": "Biography",
+    "author":"",
+    "image": "assets/images/when-breath.jpeg",
+    "alt": "Cover of When Breath Becomes Air",
+    "likes": false,
+    "progress": "to-read",
+    "notes": ""
+  
+  }
+]

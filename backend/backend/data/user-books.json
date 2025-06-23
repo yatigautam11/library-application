@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "name": "Sapiens: A Brief History of Humankind",
+        "category": "Historical",
+        "author": "",
+        "image": "assets/images/sapiens.jpg",
+        "alt": "Cover of Sapiens",
+        "likes": false,
+        "progress": "to-read",
+        "notes": ""
+    },
+    {
+        "id": 2,
+        "name": "Guns, Germs, and Steel",
+        "category": "Historical",
+        "author": "",
+        "image": "assets/images/guns-germs-steel.jpg",
+        "alt": "Cover of Guns, Germs, and Steel",
+        "likes": false,
+        "progress": "to-read",
+        "notes": ""
+    },
+    {
+        "id": 4,
+        "name": "A People's History of the United States",
+        "category": "Historical",
+        "author": "",
+        "image": "assets/images/peoples-history.jpg",
+        "alt": "Cover of A People's History",
+        "likes": false,
+        "progress": "to-read",
+        "notes": ""
+    },
+    {
+        "id": 12,
+        "name": "Ender's Game",
+        "category": "Science Fiction",
+        "author": "",
+        "image": "assets/images/enders-game.jpeg",
+        "alt": "Cover of Ender's Game",
+        "likes": false,
+        "progress": "to-read",
+        "notes": ""
+    },
+    {
+        "id": 17,
+        "name": "Gone Girl",
+        "category": "Mystery",
+        "author": "",
+        "image": "assets/images/gone-girl.jpeg",
+        "alt": "Cover of Gone Girl",
+        "likes": false,
+        "progress": "to-read",
+        "notes": ""
+    },
+    {
+        "id": 18,
+        "name": "Big Little Lies",
+        "category": "Mystery",
+        "author": "",
+        "image": "assets/images/big-little-lies.jpeg",
+        "alt": "Cover of Big Little Lies",
+        "likes": false,
+        "progress": "to-read",
+        "notes": ""
+    },
+    {
+        "id": 26,
+        "name": "The Book Thief",
+        "category": "Fictional",
+        "author": "",
+        "image": "assets/images/book-thief.jpeg",
+        "alt": "Cover of The Book Thief",
+        "likes": false,
+        "progress": "to-read",
+        "notes": ""
+    },
+    {
+        "id": 23,
+        "name": "Steve Jobs",
+        "category": "Biography",
+        "author": "",
+        "image": "assets/images/steve-jobs.jpeg",
+        "alt": "Cover of Steve Jobs biography",
+        "likes": false,
+        "progress": "to-read",
+        "notes": ""
+    }
+]

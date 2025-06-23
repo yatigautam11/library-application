@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Notes for {{ data.bookId }}</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Note</mat-label>
+    <textarea matInput [(ngModel)]="noteContent"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>Summary</mat-label>
+    <input matInput [(ngModel)]="summary" />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

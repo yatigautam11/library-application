@@ -1,0 +1,50 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #534CC5;
+  padding: 1rem;
+  color: white;
+  flex-wrap: wrap;
+
+  .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .logout-link {
+    margin-left: auto;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        color: #ffcccc;
+      }
+    }
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    &.active {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: #d1d1ff;
+    }
+  }
+}

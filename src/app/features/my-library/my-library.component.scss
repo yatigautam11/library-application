@@ -1,0 +1,52 @@
+/* Filter Section */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+.search-input,
+.filter-select {
+  padding: 0.6rem 1rem;
+  border: 2px solid #534CC5;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: white;
+  min-width: 200px;
+}
+
+.search-input:focus,
+.filter-select:focus {
+  border-color: #7b6fff;
+  box-shadow: 0 0 0 3px rgba(83, 76, 197, 0.2);
+}
+
+/* Grid Layout for Books */
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Book Card Enhancements */
+app-book-card {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  display: block;
+}
+
+app-book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}

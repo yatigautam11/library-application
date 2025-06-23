@@ -1,0 +1,41 @@
+<div class="form-container">
+  <h2 class="heading">Login</h2>
+
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="emailbox">
+      <label for="email">Email:</label>
+    </div>
+    <div class="EmailInputBox">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+    </div>
+
+    <div class="passwordbox">
+      <label for="password">Password:</label>
+    </div>
+    <div class="PasswordInputBox">
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+
+    <button type="submit" class="SubmitBox">Login</button>
+
+    <!-- Signup redirect message -->
+  <p style="margin-top: 15px; font-size: 14px;">
+    You haven't created an account yet?
+    <a routerLink="/signup" style="color: #534cc5; text-decoration: underline; text-align: center;">
+      Signup now
+    </a>
+  </p>
+  </form>
+</div>
