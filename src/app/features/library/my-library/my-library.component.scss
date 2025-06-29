@@ -1,0 +1,298 @@
+/* Filter Section */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+.search-input,
+.filter-select {
+  padding: 0.6rem 1rem;
+  border: 2px solid #402e78;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: white;
+  min-width: 200px;
+}
+
+.search-input:focus,
+.filter-select:focus {
+  border-color: #402e78;
+  box-shadow: 0 0 0 3px rgba(38, 35, 97, 0.2);
+}
+
+/* Grid Layout for Books */
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Book Card Enhancements */
+.book-card {
+  margin: 1rem 0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  font-size: 1rem;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+// .book-card {
+//   margin: 1rem 0;
+//   border-radius: 12px;
+//   background: #fff;
+//   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+//   min-height: 320px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
+.book-image {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.book-info {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.d-flex {
+  display: flex;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.mt-3 {
+  margin-top: 1rem;
+}
+.m-3 {
+  margin: 1rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+}
+
+.card-text,
+.description {
+  font-size: 1rem;
+  font-family: inherit;
+  margin-bottom: 0.3rem;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.no-books-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #7c3aed;
+  background: rgba(243,232,255,0.4);
+  border-radius: 16px;
+  margin: 2rem auto;
+  font-family: inherit;
+}
+
+.no-books-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.10);
+}
+
+/* Style for filter bar container */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background: rgba(243, 232, 255, 0.5);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.04);
+}
+
+/* Style for all select dropdowns in filter bar */
+.filter-bar select {
+  background: #f3e8ff;
+  color: #5f3dc4;
+  border: 1.5px solid #b39ddb;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  min-width: 160px;
+  box-shadow: 0 1px 4px rgba(124, 58, 237, 0.06);
+}
+
+.filter-bar select:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 2px #e9d5ff;
+}
+
+/* Optional: style the first option (All Categories/All Progress) */
+.filter-bar option[value=""] {
+  color: #a78bfa;
+  font-style: italic;
+}
+
+/* Style for the search input for consistency */
+.search-input {
+  background: #f3e8ff;
+  color: #5f3dc4;
+  border: 1.5px solid #b39ddb;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  min-width: 200px;
+  box-shadow: 0 1px 4px rgba(124, 58, 237, 0.06);
+}
+
+.search-input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 2px #e9d5ff;
+}
+
+// .book-card {
+//   display: flex;
+//   align-items: center;
+//   gap: 1rem;
+//   padding: 1rem;
+//   border-radius: 12px;
+//   background: rgba(255,255,255,0.7);
+//   margin-bottom: 1rem;
+//   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+// }
+
+.book-cover {
+  width: 60px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+// .book-info h3 {
+//   margin: 0 0 0.2rem 0;
+//   font-size: 1.1rem;
+// }
+
+.library-bg-container {
+  position: relative;
+  min-height: 100vh;
+  background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') center center/cover no-repeat !important;
+  /* Optional: add a soft overlay for readability */
+}
+
+.library-bg-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.7); /* Soft white overlay */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Make sure your content is above the background */
+.library-bg-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.action-btn {
+  background: #f4f4f4;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  box-shadow: 0 2px 6px rgba(64, 46, 120, 0.08);
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+.action-btn:hover, .action-btn:focus {
+  background: #e0d7fa;
+  box-shadow: 0 4px 12px rgba(124, 94, 153, 0.15);
+  transform: translateY(-2px) scale(1.08);
+}
+
+.like-btn {
+  color: #e63946;
+  background: #fff0f3;
+}
+.like-btn:hover, .like-btn:focus {
+  background: #ffe3ea;
+}
+
+.notes-btn {
+  color: #3a86ff;
+  background: #e0f0ff;
+}
+.notes-btn:hover, .notes-btn:focus {
+  background: #b3e0ff;
+}
+
+.remove-btn {
+  color: #fff;
+  background: #ff6b6b;
+}
+.remove-btn:hover, .remove-btn:focus {
+  background: #ff3b3b;
+}

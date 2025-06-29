@@ -1,66 +1,45 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Required for [(ngModel)]
-import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { MyLibraryComponent } from './features/my-library/my-library.component';
-import { BookCardComponent } from './shared/components/book-card/book-card.component';
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { BookAdminComponent } from './features/book-admin/book-admin.component';
-import { NotesDialogBoxComponent } from './shared/components/notes-dialog-box/notes-dialog-box.component';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
-// ✅ Angular Material Modules (NgModules!)
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDialogModule } from '@angular/material/dialog';        // For dialogs
-import { MatButtonModule } from '@angular/material/button';        // For <button mat-button>
-import { MatFormFieldModule } from '@angular/material/form-field'; // For <mat-form-field>
-import { MatInputModule } from '@angular/material/input';          // For <input matInput>
-import { MatCardModule } from '@angular/material/card';            // For <mat-card>
-import { CommonModule } from '@angular/common';
-import { BookFormDialogComponent } from './shared/components/book-form-dialog/book-form-dialog.component';
+// Feature Modules
+import { AdminModule } from './features/admin/admin.module';
+import { AuthModule } from './features/auth/auth.module';
+import { HomeModule } from './features/home/home.module';
+import { LibraryModule } from './features/library/library.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
-import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    SignupComponent,
-    DashboardComponent,
-    MyLibraryComponent,
-    BookCardComponent,
-    NavbarComponent,
-    BookAdminComponent,
-    NotesDialogBoxComponent,
-    BookFormDialogComponent,
-    BookFormDialogComponent,
-    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    CommonModule,
+    BrowserAnimationsModule,
+
+    // Core and Shared
+    CoreModule,
+    SharedModule,
+
+    // Routing
     AppRoutingModule,
-    // ✅ Angular Material modules
-    MatSnackBarModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCardModule,
-    ReactiveFormsModule
+
+    // Features 
+    AdminModule,
+    AuthModule,
+    HomeModule,
+    LibraryModule
   ],
-  providers: [provideHttpClient(),
-     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

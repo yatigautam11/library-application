@@ -1,5 +1,8 @@
 <nav class="navbar" *ngIf="isLoggedIn">
-  <div class="brand">📚 Puns & Pages</div>
+  <div class="brand">
+    <img src="/assets/images/library-bg.png" alt="Library Logo" class="navbar-logo" />
+    Puns & Pages
+  </div>
 
   <div class="nav-links">
     <a routerLink="/dashboard" routerLinkActive="active">DASHBOARD</a>
@@ -7,7 +10,9 @@
     <a *ngIf="isAdmin" routerLink="/admin/books">📚 Book Admin</a>
   </div>
 
-  <div class="logout-link">
-    <a (click)="logout()">LOGOUT</a>
+  <div class="navbar-actions">
+    <button class="buy-premium-btn" (click)="goToPremium()">Buy Premium</button>
+    <a class="logout-link" (click)="logout()">Logout</a>
   </div>
 </nav>
+

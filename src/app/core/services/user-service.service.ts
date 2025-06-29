@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { APP_CONSTANTS } from '../../shared/constants/app.constants'; // ✅ Adjust the path if needed
+import { APP_CONSTANTS } from '../utils/app.constants'; // ✅ Adjust the path if needed
 
 @Injectable({ providedIn: 'root' })
 export class UserServiceService {

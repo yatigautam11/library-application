@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="dashboard-bg">
+  <div class="dashboard-bg-blur"></div>
+
+  <div class="dashboard-content">
+    <div *ngIf="showWelcomeMessage" class="welcome-message-content">
+      <h1>Welcome to Puns & Pages</h1>
+      <p>Your cozy digital library is ready. Browse, discover, and enjoy your next great read!</p>
+    </div>
+
+    <ng-container *ngIf="!showWelcomeMessage">
+      <div class="category-container">
+        <div
+          class="category-card"
+          *ngFor="let category of uniqueCategories"
+          [class.active]="selectedCategory === category"
+          (click)="toggleCategory(category)"
+        >
+          {{ category }}
+        </div>
+      </div>
+
+      <!-- Book Grid -->
+      <div *ngIf="selectedCategory" class="books-dropdown">
+        <div class="book-item" *ngFor="let book of getBooksByCategory(selectedCategory)">
+          <img [src]="book.image" [alt]="book.alt || book.name" />
+          <p>{{ book.name }}</p>
+          <button (click)="addBookToLibrary(book.id)">Add to My Library</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

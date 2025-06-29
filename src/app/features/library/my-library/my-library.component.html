@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+<div class="library-bg-container">
+  <div class="flex flex-col gap-4 p-4">
+    <!-- Search Input -->
+    <div class="filter-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="🔍 Search by title or author"
+        class="search-input"
+      />
+
+      <!-- Category Filter -->
+      <select [(ngModel)]="selectedCategory" class="border p-2 rounded">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+
+      <!-- Progress Filter -->
+      <select [(ngModel)]="selectedProgress" class="border p-2 rounded">
+        <option value="">All Progress</option>
+        <option value="to-read">To Read</option>
+        <option value="in-progress">Reading</option>
+        <option value="finished">Completed</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+    <ng-container *ngIf="filteredBooks().length > 0; else noBooks">
+      <div *ngFor="let book of filteredBooks()" class="card shadow-sm p-4 book-card text-center d-flex flex-column align-items-center m-3">
+        <img
+          *ngIf="book.image"
+          [src]="book.image"
+          [alt]="book.name"
+          class="book-image"
+        />
+
+        <div class="book-info">
+          <h5 class="card-title">{{ book.name }}</h5>
+          <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+          <p class="card-text"><strong>Category:</strong> {{ book.category }}</p>
+          <p class="card-text description"><strong>Description:</strong> {{ book.description ?? '' | shorten: 250 }}</p>
+
+          <div class="my-2">
+            <label for="progress-{{book.id}}" class="me-2"><strong>Progress:</strong></label>
+            <select
+              id="progress-{{book.id}}"
+              [(ngModel)]="book.progress"
+              (ngModelChange)="onUpdateProgress(book, $event)"
+              class="border p-1 rounded"
+            >
+              <option value="to-read">To Read</option>
+              <option value="in-progress">Reading</option>
+              <option value="finished">Completed</option>
+            </select>
+          </div>
+
+          <div class="d-flex justify-content-center gap-2 mt-3 action-buttons">
+            <button (click)="onToggleLike(book.id)" class="action-btn like-btn" [attr.aria-label]="book.likes ? 'Unlike' : 'Like'" [title]="book.likes ? 'Unlike' : 'Like'">
+              <span *ngIf="book.likes">❤️</span>
+              <span *ngIf="!book.likes">🤍</span>
+            </button>
+            <button (click)="openNotesDialog(book.id)" class="action-btn notes-btn" aria-label="Notes" title="Notes">
+              📝
+            </button>
+            <button (click)="removeFromLibrary(book.id)" class="action-btn remove-btn" aria-label="Remove" title="Remove">
+              🗑️
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <ng-template #noBooks>
+    <div class="no-books-message">
+      <img src="/assets/images/library-bg.png" alt="No books" class="no-books-img" />
+      <h3>No books found!</h3>
+      <p>Try changing your search or filter to discover more books.</p>
+    </div>
+  </ng-template>
+</div>

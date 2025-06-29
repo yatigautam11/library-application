@@ -1,0 +1,207 @@
+:root {
+  --primary-color: #722e78;
+  --primary-hover: #a0387d;
+  --light-bg: #f4f4ff;
+  --text-color: #333;
+  --btn-bg: #5d2e78;
+  --btn-hover: #a0388b;
+  --btn-text: #fff;
+}
+
+/* CATEGORY SECTION */
+
+.category-container {
+  display: flex;
+  justify-content: space-evenly; // Spread cards evenly across the row
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  scroll-behavior: smooth;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(221,221,221,0.5);
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap; // Allow wrapping on small screens
+}
+
+.category-card {
+  min-width: 160px;
+  flex: 0 0 auto;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s;
+  backdrop-filter: blur(2px);
+}
+
+
+.category-card:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.category-card.active {
+  border: 3px solid white;
+  background-color: var(--primary-hover);
+}
+
+/* BOOK GRID */
+
+.books-dropdown {
+  max-height: 60vh;      // Adjust as needed for your layout
+  overflow-y: auto;
+  padding-right: 0.5rem; // Optional: for scrollbar space
+  margin: 1rem 2rem;
+  padding: 1rem;
+  background-color: var(--light-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.book-grid {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* BOOK ITEM */
+
+.book-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dashboard-content {
+  height: calc(100vh - 64px); // Adjust 64px to your navbar height
+  display: flex;
+  flex-direction: column;
+}
+
+.books-dropdown {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.book-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  object-fit: cover;
+}
+
+.book-item p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+/* BUTTON STYLING */
+
+.add-btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: var(--btn-hover);
+}
+
+.dashboard-bg {
+  position: fixed;
+  top: 64px; /* Adjust if your navbar is a different height */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 64px);
+  background: url('/assets/images/library-bg.png') center/cover no-repeat;
+  z-index: 0;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(60, 40, 100, 0.10); /* subtle dark overlay */
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.dashboard-bg-blur {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.3);
+  z-index: 1;
+}
+
+.dashboard-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+.cute-snackbar {
+  background: #f3e8ff;
+  color: #7c3aed;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(124,58,237,0.08);
+  text-align: center;
+}
+
+.welcome-message-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: #3d2c1e;
+  background: rgba(255,255,255,0.7);
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+}
+
+.welcome-message-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.welcome-message-content p {
+  font-size: 1.2rem;
+  color: #5a4a36;
+}

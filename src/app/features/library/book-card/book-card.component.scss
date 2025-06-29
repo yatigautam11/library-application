@@ -1,0 +1,41 @@
+
+button span.filled {
+  color: #4b2a71;
+}
+
+.notes-modal {
+  position: fixed;
+  top: 20%;
+  left: 30%;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.book-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-bottom: 1rem;
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+
+    button {
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+}

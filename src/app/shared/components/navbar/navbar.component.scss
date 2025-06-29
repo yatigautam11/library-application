@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #534CC5;
+  background-color: #422a6f;
   padding: 1rem;
   color: white;
   flex-wrap: wrap;
@@ -10,18 +10,66 @@
   .brand {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-right: auto;
+    margin-right: 2rem;
+    flex: 0 0 auto;
   }
 
   .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 3rem; // Equal spacing between links
     justify-content: center;
-    flex: 1;
+    flex: 1 1 0;
+    align-items: center;
   }
 
+  .navbar-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 0.7rem;
+  vertical-align: middle;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.10);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.buy-premium-btn, .gpay-btn {
+  background: #4285f4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: background 0.2s;
+}
+
+.buy-premium-btn:hover, .gpay-btn:hover {
+  background: #2a65c7;
+}
+
+.premium-success {
+  background: #e0ffe0;
+  color: #2e7d32;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 400px;
+  font-size: 1.2rem;
+}
+
   .logout-link {
-    margin-left: auto;
+    margin-left: 2rem;
+    flex: 0 0 auto;
 
     a {
       color: white;
@@ -38,6 +86,7 @@
     color: white;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.1rem;
 
     &.active {
       text-decoration: underline;

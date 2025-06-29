@@ -1,0 +1,85 @@
+.premium-section {
+  background: #f3e8ff;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 400px;
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.08);
+}
+
+.premium-features,
+.premium-dialog ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem 0;
+  color: #422a6f;
+  font-size: 1.1rem;
+}
+
+.buy-premium-btn,
+.submit-btn,
+.gpay-btn {
+  background: #4285f4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.buy-premium-btn:hover,
+.submit-btn:hover,
+.gpay-btn:hover {
+  background: #2a65c7;
+}
+
+.premium-dialog,
+.gpay-dialog {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.10);
+  padding: 2rem 1.5rem;
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.premium-dialog ul {
+  margin-bottom: 1.5rem;
+}
+
+.email-section {
+  margin: 1.5rem 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  width: 100%;
+}
+
+.email-section input {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #b39ddb;
+  background: #f3e8ff;
+  font-size: 1rem;
+  width: 90%;
+  max-width: 300px;
+}
+
+.premium-success {
+  background: #e0ffe0;
+  color: #2e7d32;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 400px;
+  font-size: 1.2rem;
+}

@@ -1,13 +1,14 @@
-import { map, Observable, of, tap } from "rxjs";
-import { Book } from "../../shared/models/books.model";
+import { BehaviorSubject, map, Observable, of, tap } from "rxjs";
+import { Book } from "../models/books.model";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { APP_CONSTANTS } from "../../shared/constants/app.constants"; // ✅ Import the constants
+import { APP_CONSTANTS } from "../utils/app.constants"; // ✅ Import the constants
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
   private books: Book[] = []; // all available books
   private userLibrary: Book[] = [];
+  private booksSubject = new BehaviorSubject<Book[]>(this.loadBooks());
 
   constructor(private http: HttpClient) {}
 
@@ -45,6 +46,11 @@ export class BookService {
     if (book) book.notes = note;
   }
 
+  saveBooks(books: Book[]): void {
+    localStorage.setItem('books', JSON.stringify(books));
+    this.booksSubject.next(books);
+  }
+
   getNote(bookId: string): string {
     return this.userLibrary.find(b => b.id === bookId)?.notes ?? '';
   }
@@ -69,4 +75,25 @@ export class BookService {
       map(res => res.userbooks)
     );
   }
+
+  addBook(book: Book): Observable<Book> {
+  return this.http.post<Book>('http://localhost:3000/books', book);
+}
+
+   private loadBooks(): Book[] {
+    const stored = localStorage.getItem('books');
+    return stored ? JSON.parse(stored) : [];
+  }
+
+  public updateLikedBooksInStorage(bookId: string, liked: boolean){
+    const likedBooks: string[] = JSON.parse(localStorage.getItem('likedBooks') || '[]');
+    if(liked && !likedBooks.includes(bookId)){
+      likedBooks.push(bookId);
+      } else if(!liked){
+        const idx = likedBooks.indexOf(bookId);
+        if(idx> -1) likedBooks.splice(idx,1);
+      }
+      localStorage.setItem('likedBooks', JSON.stringify(likedBooks));
+    }
+  
 }

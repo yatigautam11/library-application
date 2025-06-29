@@ -6,7 +6,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { APP_CONSTANTS } from '../../shared/constants/app.constants'; // adjust path as needed
+import { APP_CONSTANTS } from '../utils/app.constants';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -16,20 +16,42 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 401) {
-          this.snackBar.open(APP_CONSTANTS.MESSAGES.UNAUTHORIZED, 'Close', {
-            duration: APP_CONSTANTS.SNACKBAR_DURATION
-          });
-          this.router.navigate([APP_CONSTANTS.ROUTES.LOGIN]);
-        } else if (error.status === 403) {
-          this.snackBar.open(APP_CONSTANTS.MESSAGES.FORBIDDEN, 'Close', {
-            duration: APP_CONSTANTS.SNACKBAR_DURATION
-          });
-        } else if (error.status === 500) {
-          this.snackBar.open(APP_CONSTANTS.MESSAGES.SERVER_ERROR, 'Close', {
-            duration: APP_CONSTANTS.SNACKBAR_DURATION
-          });
+        let serverMessage = error.error?.error || error.error?.message || null;
+
+        // Define fallback message
+        let fallbackMessage = APP_CONSTANTS.MESSAGES.GENERIC_ERROR;
+
+        switch (error.status) {
+          case 0:
+            serverMessage = 'Unable to connect to the server. Please check your internet connection.';
+            break;
+
+          case 401:
+            serverMessage ||= APP_CONSTANTS.MESSAGES.UNAUTHORIZED;
+            this.router.navigate([APP_CONSTANTS.ROUTES.LOGIN]);
+            break;
+
+          case 403:
+            serverMessage ||= APP_CONSTANTS.MESSAGES.FORBIDDEN;
+            break;
+
+          case 404:
+            serverMessage ||= APP_CONSTANTS.MESSAGES.NOT_FOUND;
+            break;
+
+          case 500:
+            serverMessage ||= APP_CONSTANTS.MESSAGES.SERVER_ERROR;
+            break;
+
+          default:
+            serverMessage ||= fallbackMessage;
+            break;
         }
+
+        // Show message in snack bar
+        this.snackBar.open(serverMessage, 'Close', {
+          duration: APP_CONSTANTS.SNACKBAR_DURATION
+        });
 
         return throwError(() => error);
       })

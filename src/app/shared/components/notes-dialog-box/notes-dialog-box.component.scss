@@ -1,0 +1,33 @@
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; // spacing between note and summary fields
+  padding-top: 0.5rem;
+}
+
+mat-form-field {
+  width: 100%;
+  margin: 0 auto;
+}
+
+mat-form-field:first-child {
+  max-width: 300px; // thinner note box
+}
+
+mat-form-field:last-child {
+  max-width: 500px; // bigger summary box
+}
+
+textarea[matInput] {
+  min-height: 60px;
+  resize: vertical;
+}
+
+input[matInput] {
+  min-height: 40px;
+  font-size: 1.05rem;
+}
+
+mat-dialog-actions {
+  margin-top: 1.5rem;
+}

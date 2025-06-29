@@ -1,0 +1,47 @@
+<mat-card appHighlight class="book-card">
+  <mat-card-title>{{ book.name }}</mat-card-title>
+  <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+
+  <mat-form-field>
+    <mat-label>Progress</mat-label>
+    <select matNativeControl (change)="onProgressChange($event)">
+      <option value="to-read" [selected]="book.progress === 'to-read'">To Read</option>
+      <option value="in-progress" [selected]="book.progress === 'in-progress'">In Progress</option>
+      <option value="finished" [selected]="book.progress === 'finished'">Finished</option>
+    </select>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button color="accent" (click)="toggleLike.emit(book.id)">
+      {{ book.likes ? '👍 Liked' : '👎 Not Liked' }}
+    </button>
+    <button mat-button color="warn" (click)="onRemoveClick()">Remove</button>
+    <button mat-button color="primary" (click)="viewMyNotes()">
+      {{ showNotes ? 'Hide Notes' : 'View My Notes' }}
+    </button>
+  </div>
+
+  <!-- Notes Section -->
+  <div *ngIf="showNotes" style="margin-top: 1rem;">
+    <div *ngIf="!isEditing">
+      <p><strong>Note:</strong> {{ note || 'No note yet.' }}</p>
+      <p><strong>Summary:</strong> {{ summary || 'No summary yet.' }}</p>
+      <button mat-stroked-button (click)="editNote()">Edit</button>
+    </div>
+
+    <div *ngIf="isEditing">
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Note</mat-label>
+        <textarea matInput [(ngModel)]="note"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Summary</mat-label>
+        <textarea matInput [(ngModel)]="summary"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="saveNote()">Save</button>
+      <button mat-button (click)="cancelEdit()">Cancel</button>
+    </div>
+  </div>
+</mat-card>

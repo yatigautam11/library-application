@@ -1,0 +1,44 @@
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.logo {
+  height: 40px;
+  margin-right: 0.75rem;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #5e3887;
+  border-bottom: 2px solid #614596;
+}
+
+.app-header img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 1.2rem;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.12);
+  background: #fff;
+}
+
+.brand-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e6e4eb;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 2rem;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+}
+

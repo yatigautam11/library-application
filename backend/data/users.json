@@ -1,0 +1,22 @@
+[
+  {
+    "id": "7de0e0c7-7df5-45bd-a3a6-7431d830210c",
+    "email": "yatigautam11@gmail.com",
+    "password": "$2b$10$gQESgumVrB9r.nTf/tWA8uiimnzkhky1RJUITEoAELjDB6V8df8lm"
+  },
+  {
+    "id": "0b85972e-0c0e-45c4-95fc-a897766b7868",
+    "email": "yati12@gmail.com",
+    "password": "$2b$10$nwMYjMsf9FVMW1lEcGp6B.6xAyXU7d7QrJ/D6pH/SaVpwWW5TJpOW"
+  },
+  {
+    "id": "b7f68e36-1787-4de0-a9b5-5686548b71e4",
+    "email": "yatigautam12@gmail.com",
+    "password": "$2b$10$dBkVL09TzHoC46qjo54jMO73iw9zPV6V9ugEjx.pmv4qkVA4iN6tq"
+  },
+  {
+    "id": "b610ff9e-65c2-483b-b48b-2ff277ca9f5a",
+    "email": "admin@example.com",
+    "password": "$2b$10$etGiwfmYkGGTOPW1VVIyiezsO9b5YSRWY21m2fj1itbgmPPxjV262"
+  }
+]
