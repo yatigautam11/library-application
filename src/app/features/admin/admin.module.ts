@@ -11,21 +11,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { ShortenPipe } from '../../shared/pipes/shorten.pipe';
 import { SharedModule } from '../../shared/shared.module';
 
+// AdminModule provides the admin interface for managing books.
+// It includes components for book management and uses Angular Material for UI.
 @NgModule({
   declarations: [
-    BookAdminComponent,
-    BookFormDialogComponent
+    BookAdminComponent, // BookAdminComponent provides the admin interface for managing books.
+    BookFormDialogComponent // BookFormDialogComponent provides a form for adding or editing books.
   ],
   imports: [
-    CommonModule,
-    AdminRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    SharedModule
+    CommonModule, // CommonModule provides common directives like ngIf and ngFor.
+    AdminRoutingModule,// AdminRoutingModule defines the routes for the admin feature module.
+    ReactiveFormsModule, // ReactiveFormsModule enables reactive form features for form management.
+    FormsModule, // FormsModule provides template-driven form features.
+    MatDialogModule, // MatDialogModule provides dialog features for displaying forms in a modal.
+    MatFormFieldModule, // MatFormFieldModule provides form field features for input controls.
+    MatInputModule, // MatInputModule provides input features for text fields.
+    MatButtonModule, // MatButtonModule provides button features for form submission and actions.
+    SharedModule // SharedModule contains shared components and pipes used across the application.
   ]
 })
 export class AdminModule { }

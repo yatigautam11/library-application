@@ -12,6 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
 
+// SharedModule provides common components, directives, and pipes used across the application.
+// It includes the Navbar, PageNotFound component, Notes dialog box, and a Shorten
 @NgModule({
   declarations: [
     NavbarComponent,

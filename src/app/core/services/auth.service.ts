@@ -3,6 +3,11 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { APP_CONSTANTS } from '../utils/app.constants'; 
 import { HttpClient } from '@angular/common/http';
 
+/**
+ * AuthResponse defines the structure of the response returned by the backend
+ * after a successful signup or login.
+ */
+
 interface AuthResponse {
   token: string;
   user: {
@@ -12,6 +17,12 @@ interface AuthResponse {
   };
 }
 
+/**
+ * AuthService manages authentication state, user info, and token storage.
+ * - Handles login, signup, and logout.
+ * - Stores and retrieves user and token from localStorage.
+ * - Exposes observables for login and admin status.
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +30,7 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:3000';
 
+  // BehaviorSubjects to track login and admin status
   private _isLoggedIn = new BehaviorSubject<boolean>(this.checkLogin());
   isLoggedIn$ = this._isLoggedIn.asObservable();
 
@@ -27,10 +39,16 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * Checks if a user is logged in by looking for a user object in localStorage.
+   */
   private checkLogin(): boolean {
     return !!localStorage.getItem('user');
   }
 
+  /**
+   * Checks if the current user is an admin by comparing their email to the admin email.
+   */
   private checkAdmin(): boolean {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     return user?.email === APP_CONSTANTS.ADMIN_EMAIL;
@@ -58,6 +76,9 @@ export class AuthService {
     );
   }
 
+  /**
+   * Logs out the user, clears localStorage, and resets authentication state.
+   */
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -66,19 +87,28 @@ export class AuthService {
   }
 
 getUserEmail(): string {
-  // Return the logged-in user's email from your auth logic (token, user object, etc.)
+  // Return the logged-in user's email from auth logic 
   const user = JSON.parse(localStorage.getItem('user') || '{}');
   return user?.email || '';
 }
 
+/**
+   * Returns the authentication token from localStorage, or null if not present.
+   */
   getToken(): string | null {
     return localStorage.getItem('token');
   }
 
+  /**
+   * Returns true if the user is currently logged in.
+   */
   isLoggedIn(): boolean {
     return this._isLoggedIn.value;
   }
 
+/**
+   * Returns true if the current user is an admin.
+   */
   isAdmin(): boolean {
     return this._isAdmin.value;
   }

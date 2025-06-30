@@ -1,5 +1,8 @@
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
+
+// HighlightDirective adds a hover effect to elements by applying a box shadow and scaling the element slightly.
+// It listens for mouse enter and leave events to apply and remove the styles.
 @Directive({
   selector: '[appHighlight]',
   standalone:false

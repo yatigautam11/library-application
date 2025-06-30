@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
+// SignupComponent provides the signup interface for new users.
+// It allows users to enter their name, email, password, and confirm password to create a
 @Component({
   selector: 'app-signup',
   standalone: false,
@@ -15,6 +17,8 @@ export class SignupComponent {
   showPassword = false;
   showConfirmPassword = false;
 
+  // Inject FormBuilder, AuthService, Router, and MatSnackBar for form management, authentication, navigation, and UI feedback.
+  // The form includes fields for name, email, password, and confirm password with validation.
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -29,12 +33,14 @@ export class SignupComponent {
     }, { validators: this.passwordMatchValidator });
   }
 
+  // Custom validator to check if password and confirmPassword match.
   passwordMatchValidator(group: AbstractControl): { [key: string]: boolean } | null {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { mismatch: true };
   }
 
+  // onSubmit is called when the signup form is submitted.
   onSubmit(): void {
     if (this.signupForm.invalid) {
       this.matSnackBar.open('Please fix the form errors.', 'Close', {
@@ -63,14 +69,18 @@ export class SignupComponent {
     });
   }
 
+  // Toggle password visibility for the password and confirm password fields.
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
   }
 
+  // Toggle confirm password visibility for the confirm password field.
   toggleConfirmPasswordVisibility(): void {
     this.showConfirmPassword = !this.showConfirmPassword;
   }
 
+  // Getters for form controls to simplify template access.
+  // These provide easy access to the form controls in the template.
   get name() {
     return this.signupForm.get('name');
   }

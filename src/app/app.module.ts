@@ -16,6 +16,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
+// The AppModule is the root module of the application.
+// It imports the BrowserModule, BrowserAnimationsModule, CoreModule, SharedModule,
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,9 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     HomeModule,
     LibraryModule
   ],
+  // Providers for interceptors
+  // AuthInterceptor adds authentication headers to requests
+  // JwtInterceptor adds JWT token to requests
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true}

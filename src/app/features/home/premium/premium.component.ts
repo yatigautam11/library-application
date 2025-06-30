@@ -1,6 +1,14 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from '/Users/walkingtree/library-application/src/app/core/services/auth.service'; // Adjust path as needed
+import { Component } from '@angular/core';
+import {
+  PaymentDataRequest,
+  PaymentMethodType,
+  ButtonColor,
+  ButtonType
+} from '../../../shared/google-pay.types';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+// PremiumComponent provides the interface for users to purchase premium features.
+// It uses Google Pay for payment processing and displays a success message upon successful payment.
 
 @Component({
   selector: 'app-premium',
@@ -9,27 +17,58 @@ import { AuthService } from '/Users/walkingtree/library-application/src/app/core
   styleUrls: ['./premium.component.scss']
 })
 export class PremiumComponent {
-  @ViewChild('premiumDialog') premiumDialog!: TemplateRef<any>;
-  @ViewChild('gpayDialog') gpayDialog!: TemplateRef<any>;
-  showPremiumSuccess = false;
-  userEmail = '';
+  buttonColor: ButtonColor = ButtonColor.Black;
+  buttonType: ButtonType = ButtonType.Buy;
+  isCustomSize = false;
+  buttonWidth = 240;
+  buttonHeight = 40;
+  isPaymentSuccess = false;
 
-  constructor(private dialog: MatDialog, private authService: AuthService) {}
+  constructor( private snackBar: MatSnackBar){}
 
-  openPremiumDialog() {
-    // Get the logged-in user's email from AuthService
-    this.userEmail = this.authService.getUserEmail(); // Implement this in your AuthService
-    this.dialog.open(this.premiumDialog);
-  }
+  // paymentRequest defines the configuration for the Google Pay payment request.
+  // It includes allowed payment methods, merchant information, and transaction details.
+  paymentRequest: PaymentDataRequest = {
+    apiVersion: 2,
+    apiVersionMinor: 0,
+    allowedPaymentMethods: [
+      {
+        type: PaymentMethodType.Card,
+        parameters: {
+          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+          allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD']
+        },
+        tokenizationSpecification: {
+          type: 'PAYMENT_GATEWAY',
+          parameters: {
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId'
+          }
+        }
+      }
+    ],
+    merchantInfo: {
+      merchantId: '12345678901234567890',
+      merchantName: 'Demo Merchant'
+    },
+    transactionInfo: {
+      totalPriceStatus: 'FINAL',
+      totalPriceLabel: 'Total',
+      totalPrice: '199.00',
+      currencyCode: 'INR',
+      countryCode: 'IN'
+    }
+  };
 
-  showGPayBox() {
-    this.dialog.closeAll();
-    this.dialog.open(this.gpayDialog);
-  }
-
-  payWithGPay() {
-    this.dialog.closeAll();
-    this.showPremiumSuccess = true;
-    setTimeout(() => this.showPremiumSuccess = false, 5000);
+  // onLoadPaymentData is called when the payment data is successfully loaded.
+  // It displays a success message using MatSnackBar and sets isPaymentSuccess to true.
+  onLoadPaymentData(event: any) {
+    this.snackBar.open('Payment is successful!, Enjoy Premium Features!', 'Close', {
+      duration: 3000,
+      panelClass: ['snackbar-success']
+    }
+    )
+    this.isPaymentSuccess = true;
+    console.log('load payment data', event.detail);
   }
 }

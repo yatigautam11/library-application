@@ -7,6 +7,7 @@ import { NavbarComponent } from '../../shared/components/navbar/navbar.component
 import { SharedModule } from '../../shared/shared.module';
 import { PremiumComponent } from './premium/premium.component';
 import { FormsModule } from '@angular/forms';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    GooglePayButtonModule
   ]
 })
 export class HomeModule { }

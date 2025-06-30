@@ -9,6 +9,8 @@ import { SearchService } from '../../../core/services/search.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
+// MyLibraryComponent is the main component for managing the user's book library.
+// It allows users to view, search, filter, and manage their books, including adding/rem
 @Component({
   selector: 'app-my-library',
   standalone: false,
@@ -33,7 +35,8 @@ export class MyLibraryComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {}
 
-
+// ngOnInit is called when the component is initialized.
+// It fetches the user's library from the server and initializes the books and categories.
   ngOnInit(): void {
     this.bookService.getUserLibraryFromServer().subscribe(userBooks => {
       const likedBooks: string[]= JSON.parse(localStorage.getItem('likedBooks') || '[]');
@@ -45,7 +48,7 @@ export class MyLibraryComponent implements OnInit {
     });
   }
 
-
+// filteredBooks returns the list of books based on the search term, selected category, and selected progress.
   filteredBooks() {
     return this.books.filter(book => {
       const matchesSearch = this.searchTerm
@@ -65,12 +68,15 @@ export class MyLibraryComponent implements OnInit {
     });
   }
 
+  // addToLibrary adds a book to the user's library and updates the books list.
+  // It uses the BookService to add the book and updates the local books array.
   addToLibrary(bookId: string) {
     this.bookService.addToUserLibrary(bookId).subscribe(userBooks => {
       this.books = userBooks;
     });
   }
 
+  // removeFromLibrary opens a confirmation dialog before removing a book from the user's library.
   removeFromLibrary(bookId: string) {
     const dialogRef= this.dialog.open(ConfirmationDialogComponent, {
       width:'350px'
@@ -86,6 +92,7 @@ export class MyLibraryComponent implements OnInit {
 });
   }
 
+  // viewMyNotes retrieves all notes from the user's library and formats them for display.
   viewMyNotes() {
     const allNotes = this.notesService.getAllNotes();
     this.notesList = Object.entries(allNotes).map(([bookId, data]) => {
@@ -99,10 +106,12 @@ export class MyLibraryComponent implements OnInit {
     });
   }
 
+  // isInUserLibrary checks if a book is already in the user's library.
   isInUserLibrary(bookId: string): boolean {
     return this.books.some(b => b.id === bookId);
   }
 
+  // onToggleWishlist toggles the wishlist status of a book and updates the local storage.
   onToggleLike(id: string) {
     const book= this.books.find(b => b.id===id);
     if(!book) return;
@@ -118,8 +127,6 @@ export class MyLibraryComponent implements OnInit {
 
   onUpdateProgress(book: Book, newProgress: "to-read" | "in-progress" | "finished") {
   book.progress = newProgress;
-  // Save/update as needed, e.g.:
-  // this.bookService.updateProgress(book.id, newProgress).subscribe();
 }
 
   getActiveNoteBook(): Book | undefined {

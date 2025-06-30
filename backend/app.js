@@ -142,6 +142,49 @@ app.get('/admin/books', verifyToken, requireAdmin, async (req, res) => {
   }
 });
 
+app.put("/books/:id", async (req, res) => {
+  try {
+    const bookId = req.params.id;
+    const updatedBook = req.body;
+
+    const fileContent = await fs.readFile("./data/books.json");
+    const books = JSON.parse(fileContent);
+
+    const index = books.findIndex((b) => String(b.id) === String(bookId));
+    if (index === -1) {
+      return res.status(404).json({ error: "Book not found" });
+    }
+
+    books[index] = { ...books[index], ...updatedBook };
+
+    await fs.writeFile("./data/books.json", JSON.stringify(books, null, 2));
+    res.status(200).json(books[index]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.delete("/books/:id", async (req, res) => {
+  try {
+    const bookId = req.params.id;
+    const fileContent = await fs.readFile("./data/books.json");
+    const books = JSON.parse(fileContent);
+
+    const index = books.findIndex((b) => String(b.id) === String(bookId));
+    if (index === -1) {
+      return res.status(404).json({ error: "Book not found" });
+    }
+
+    books.splice(index, 1);
+    await fs.writeFile("./data/books.json", JSON.stringify(books, null, 2));
+    res.status(200).json({ message: "Book deleted" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // 404
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {

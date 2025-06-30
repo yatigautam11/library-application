@@ -3,16 +3,16 @@
   <!-- Search & Add Button -->
   <div class="top-bar">
     <input
-      [(ngModel)]="searchTerm"
-      placeholder="Search by title or author"
-      class="form-control"
-    />
+  [(ngModel)]="searchTermValue"
+  placeholder="Search by title or author"
+  class="form-control"
+/>
 
     <!-- Uncomment to use filter -->
     <!--
-    <select [(ngModel)]="selectedCategory" class="form-select">
+    <select [(ngModel)]="selectedCategory()" (ngModelChange)="selectedCategory.set($event)" class="form-select">
       <option value="">All Categories</option>
-      <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      <option *ngFor="let cat of categories()" [value]="cat">{{ cat }}</option>
     </select>
     -->
 
@@ -21,27 +21,26 @@
     </button>
   </div>
 
-<!-- Inside *ngFor -->
-<!-- Book Cards Grid -->
-<div class="book-grid">
-  <div *ngFor="let book of filteredBooks()" class="card shadow-sm p-4 book-card text-center d-flex flex-column align-items-center">
-    <img
-      *ngIf="book.image"
-      [src]="book.image"
-      [alt]="book.name"
-      class="book-image"
-    />
+  <!-- Book Cards Grid -->
+  <div class="book-grid">
+    <div *ngFor="let book of books()" class="card shadow-sm p-4 book-card text-center d-flex flex-column align-items-center">
+  <img
+    *ngIf="book.image"
+    [src]="book.image"
+    [alt]="book.name"
+    class="book-image"
+  />
 
-    <div class="book-info">
-      <h5 class="card-title">{{ book.name }}</h5>
-      <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
-      <p class="card-text"><strong>Category:</strong> {{ book.category }}</p>
-      <p class="card-text description"><strong>Description:</strong> {{ book.description ?? '' | shorten: 250 }}</p>
+  <div class="book-info">
+    <h5 class="card-title">{{ book.name }}</h5>
+    <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+    <p class="card-text"><strong>Category:</strong> {{ book.category }}</p>
+    <p class="card-text description"><strong>Description:</strong> {{ book.description ?? '' | shorten: 250 }}</p>
 
-      <div class="d-flex justify-content-center gap-2 mt-3">
-        <button (click)="editBook(book)" class="btn btn-outline-primary btn-sm">Edit</button>
-        <button (click)="deleteBook(book.id)" class="btn btn-outline-danger btn-sm">Delete</button>
-      </div>
+    <div class="d-flex justify-content-center gap-2 mt-3">
+      <button (click)="editBook(book)" class="btn btn-outline-primary btn-sm">Edit</button>
+      <button (click)="deleteBook(book.id)" class="btn btn-outline-danger btn-sm">Delete</button>
     </div>
   </div>
 </div>
+

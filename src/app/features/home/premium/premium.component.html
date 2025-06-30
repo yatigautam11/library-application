@@ -7,37 +7,24 @@
     <li>✔️ Priority Support</li>
     <li>✔️ Early Access to New Features</li>
   </ul>
-  <button class="buy-premium-btn" (click)="openPremiumDialog()">Buy Premium</button>
-</div>
+  <div class="demo">
+    <google-pay-button
+      environment="TEST"
+      [buttonColor]="buttonColor"
+      [buttonType]="buttonType"
+      [buttonSizeMode]="isCustomSize ? 'fill' : 'static'"
+      [paymentRequest]="paymentRequest"
+      [style.width.px]="buttonWidth"
+      [style.height.px]="buttonHeight"
+      (loadpaymentdata)="onLoadPaymentData($event)">
+    </google-pay-button>
+  </div>
 
-<!-- Premium Features Dialog -->
-<ng-template #premiumDialog>
-  <div class="premium-dialog">
-    <h3>Premium Features</h3>
-    <ul>
-      <li>✔️ Unlimited Bookmarks</li>
-      <li>✔️ Access to Exclusive Books</li>
-      <li>✔️ Priority Support</li>
-      <li>✔️ Early Access to New Features</li>
-    </ul>
-    <div class="email-section">
-      <label for="premium-email"><strong>Email:</strong></label>
-      <input id="premium-email" type="email" [(ngModel)]="userEmail" [readonly]="true" />
+  <div *ngIf="isPaymentSuccess" class="payment-success-box">
+    <span class="success-icon">🎉</span>
+    <div>
+      <h4>Payment Successful!</h4>
+      <p>Enjoy the premium services now, more features are coming your way 🚀</p>
     </div>
-    <button class="submit-btn" (click)="showGPayBox()">Submit</button>
   </div>
-</ng-template>
-
-<!-- Google Pay Box Dialog -->
-<ng-template #gpayDialog>
-  <div class="gpay-dialog">
-    <h3>Pay with Google Pay</h3>
-    <button class="gpay-btn" (click)="payWithGPay()">Pay ₹199 with Google Pay</button>
-  </div>
-</ng-template>
-
-<!-- Success Message -->
-<div *ngIf="showPremiumSuccess" class="premium-success">
-  <h3>🎉 Payment Successful!</h3>
-  <p>You can now enjoy the premium services coming right on the way.</p>
 </div>
