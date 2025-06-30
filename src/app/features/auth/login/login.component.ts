@@ -5,6 +5,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { APP_CONSTANTS } from '../../../core/utils/app.constants'; 
 
+// LoginComponent provides the login interface for users.
+// It allows users to enter their email and password to log in.
 @Component({
   selector: 'app-login',
   standalone: false,
@@ -21,11 +23,12 @@ export class LoginComponent {
     private matSnackBar: MatSnackBar
   ) {}
 
+  // onSubmit is called when the login form is submitted.
+  // It validates the form and calls the AuthService to log in the user.
   onSubmit(form: NgForm) {
     if (form.valid) {
       this.authService.login(this.email, this.password).subscribe({
         next: (response) => {
-          console.log('JWT token:', response.token);
           this.matSnackBar.open(
             APP_CONSTANTS.MESSAGES.LOGIN_SUCCESS,
             'Close',

@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+// NotesDialogBoxComponent provides a dialog for adding or editing notes for a book.
+// It allows users to enter a note and a summary, and handles saving or canceling the
 @Component({
   selector: 'app-notes-dialog-box',
   standalone: false,
@@ -21,6 +23,8 @@ export class NotesDialogBoxComponent {
     }
   }
 
+  // onSave is called when the user clicks the save button.
+  // It closes the dialog and returns the book ID, note content, and summary.
   onSave(): void {
     this.dialogRef.close({
       bookId: this.data.bookId,

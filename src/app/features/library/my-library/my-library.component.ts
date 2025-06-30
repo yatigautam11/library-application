@@ -5,7 +5,6 @@ import { Book } from '../../../core/models/books.model';
 import { MatDialog } from '@angular/material/dialog';
 import { NotesDialogBoxComponent } from '../../../shared/components/notes-dialog-box/notes-dialog-box.component';
 import { APP_CONSTANTS } from '../../../core/utils/app.constants'; 
-import { SearchService } from '../../../core/services/search.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
@@ -125,10 +124,12 @@ export class MyLibraryComponent implements OnInit {
     
   }
 
+  
   onUpdateProgress(book: Book, newProgress: "to-read" | "in-progress" | "finished") {
   book.progress = newProgress;
 }
 
+// getActiveNoteBook retrieves the currently active notebook based on the activeNoteBookId.
   getActiveNoteBook(): Book | undefined {
     return this.books.find(b => b.id === this.activeNoteBookId!);
   }

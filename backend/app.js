@@ -11,6 +11,7 @@ import verifyToken, { requireAdmin } from "./middleware/auth.middleware.js";
 const app = express();
 
 app.use(express.static("images"));
+
 app.use(bodyParser.json());
 
 //with installing the cors

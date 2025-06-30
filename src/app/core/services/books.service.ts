@@ -2,7 +2,7 @@ import { BehaviorSubject, map, Observable, of, tap } from "rxjs";
 import { Book } from "../models/books.model";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { APP_CONSTANTS } from "../utils/app.constants"; // ✅ Import the constants
+import { APP_CONSTANTS } from "../utils/app.constants";
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
@@ -10,8 +10,8 @@ export class BookService {
   private userLibrary: Book[] = [];
   private booksSubject = new BehaviorSubject<Book[]>(this.loadBooks());
 
-  constructor(private http: HttpClient) {}
-// Get the list of all books
+  constructor(private http: HttpClient) { }
+  // Get the list of all books
   getBooks(): Observable<Book[]> {
     if (this.books.length > 0) return of(this.books);
 
@@ -21,17 +21,17 @@ export class BookService {
     );
   }
 
-  //
-  addToLibrary(book: Book) {
-    if (!this.userLibrary.find(b => b.id === book.id)) {
-      this.userLibrary.push({ ...book, inLibrary: true, progress: 'to-read', likes: false, notes: '' });
-    }
-  }
+  // //
+  // addToLibrary(book: Book) {
+  //   if (!this.userLibrary.find(b => b.id === book.id)) {
+  //     this.userLibrary.push({ ...book, inLibrary: true, progress: 'to-read', likes: false, notes: '' });
+  //   }
+  // }
 
   // Get the list of books in the user's library
-  getUserLibrary(): Book[] {
-    return this.userLibrary;
-  }
+  // getUserLibrary(): Book[] {
+  //   return this.userLibrary;
+  // }
 
   // Toggle the like status of a book in the user's library
   toggleLike(bookId: string) {
@@ -85,26 +85,26 @@ export class BookService {
       map(res => res.userbooks)
     );
   }
-// Add a new book to the main books collection on the server
-  addBook(book: Book): Observable<Book> {
-  return this.http.post<Book>('http://localhost:3000/books', book);
-}
-//load books from localStorage
-   private loadBooks(): Book[] {
+  // Add a new book to the main books collection on the server
+  //   addBook(book: Book): Observable<Book> {
+  //   return this.http.post<Book>('http://localhost:3000/books', book);
+  // }
+  //load books from localStorage
+  private loadBooks(): Book[] {
     const stored = localStorage.getItem('books');
     return stored ? JSON.parse(stored) : [];
   }
 
   // Update the liked books in localStorage
-  public updateLikedBooksInStorage(bookId: string, liked: boolean){
+  public updateLikedBooksInStorage(bookId: string, liked: boolean) {
     const likedBooks: string[] = JSON.parse(localStorage.getItem('likedBooks') || '[]');
-    if(liked && !likedBooks.includes(bookId)){
+    if (liked && !likedBooks.includes(bookId)) {
       likedBooks.push(bookId);
-      } else if(!liked){
-        const idx = likedBooks.indexOf(bookId);
-        if(idx> -1) likedBooks.splice(idx,1);
-      }
-      localStorage.setItem('likedBooks', JSON.stringify(likedBooks));
+    } else if (!liked) {
+      const idx = likedBooks.indexOf(bookId);
+      if (idx > -1) likedBooks.splice(idx, 1);
     }
-  
+    localStorage.setItem('likedBooks', JSON.stringify(likedBooks));
+  }
+
 }

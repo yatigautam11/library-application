@@ -32,7 +32,7 @@ export class AuthInterceptor implements HttpInterceptor {
         // Try to extract a server error message, fallback to generic if not found
         let serverMessage = error.error?.error || error.error?.message || null;
 
-        // Define fallback message
+        // Definedfallback message
         let fallbackMessage = APP_CONSTANTS.MESSAGES.GENERIC_ERROR;
 
         // Handle different HTTP error statuses

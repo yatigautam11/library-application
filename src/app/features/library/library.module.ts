@@ -15,6 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from '../../shared/shared.module';
 import { ShortenPipe } from '../../shared/pipes/shorten.pipe';
 
+// LibraryModule provides the main interface for users to interact with their library.
+// It includes components for viewing and managing books, and uses Angular Material for UI components.
 @NgModule({
   declarations: [
     HighlightDirective,

@@ -69,6 +69,6 @@ export class PremiumComponent {
     }
     )
     this.isPaymentSuccess = true;
-    console.log('load payment data', event.detail);
+    
   }
 }

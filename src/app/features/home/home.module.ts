@@ -9,6 +9,8 @@ import { PremiumComponent } from './premium/premium.component';
 import { FormsModule } from '@angular/forms';
 import { GooglePayButtonModule } from '@google-pay/button-angular';
 
+// HomeModule provides the main interface for users to interact with the library application.
+// It includes components for the dashboard and premium features, and uses Google Pay for payment processing.
 @NgModule({
   declarations: [
     DashboardComponent,

@@ -50,20 +50,33 @@ export class AuthService {
    * Checks if the current user is an admin by comparing their email to the admin email.
    */
   private checkAdmin(): boolean {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    return user?.email === APP_CONSTANTS.ADMIN_EMAIL;
-  }
+  const userStr = localStorage.getItem('user');
+  if (!userStr || userStr === 'undefined') return false;
 
-  signup(email: string, password: string): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/signup`, { email, password }).pipe(
-      tap(response => {
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('user', JSON.stringify(response.user));
-        this._isLoggedIn.next(true);
-        this._isAdmin.next(response.user.email === APP_CONSTANTS.ADMIN_EMAIL);
-      })
-    );
+  try {
+    const user = JSON.parse(userStr);
+    return user?.email === APP_CONSTANTS.ADMIN_EMAIL;
+  } catch {
+    return false;
   }
+}
+
+
+  signup(name: string, email: string, password: string): Observable<any> {
+  return this.http.post<any>(`${this.apiUrl}/signup`, { name, email, password });
+}
+
+
+  // signup(name: string, email: string, password: string): Observable<AuthResponse> {
+  //   return this.http.post<AuthResponse>(`${this.apiUrl}/signup`, { name, email, password }).pipe(
+  //   //   tap(response => {
+  //   //     localStorage.setItem('token', response.token);
+  //   //     localStorage.setItem('user', JSON.stringify(response.user));
+  //   //     this._isLoggedIn.next(true);
+  //   //     this._isAdmin.next(response.user.email === APP_CONSTANTS.ADMIN_EMAIL);
+  //   //   })
+  //   );
+  // }
 
   login(email: string, password: string): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/login`, { email, password }).pipe(
@@ -87,9 +100,15 @@ export class AuthService {
   }
 
 getUserEmail(): string {
-  // Return the logged-in user's email from auth logic 
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
-  return user?.email || '';
+  const userStr = localStorage.getItem('user');
+  if (!userStr || userStr === 'undefined') return '';
+
+  try {
+    const user = JSON.parse(userStr);
+    return user?.email || '';
+  } catch {
+    return '';
+  }
 }
 
 /**

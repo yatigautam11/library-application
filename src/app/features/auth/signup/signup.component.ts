@@ -50,8 +50,8 @@ export class SignupComponent {
       return;
     }
 
-    const { email, password } = this.signupForm.value;
-    this.authService.signup(email, password).subscribe({
+    const { name, email, password } = this.signupForm.value;
+    this.authService.signup(name, email, password).subscribe({
       next: () => {
         this.matSnackBar.open('Successfully signed up!', 'Close', {
           duration: 3000,

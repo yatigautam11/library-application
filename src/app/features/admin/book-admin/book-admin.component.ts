@@ -55,7 +55,7 @@ export class BookAdminComponent implements OnInit {
    */
   constructor() {
     effect(() => {
-      console.log('Books updated:', this.books());
+      // console.log('Books updated:', this.books());
     });
   }
 
@@ -64,8 +64,7 @@ export class BookAdminComponent implements OnInit {
    * Handles both array and object API responses for flexibility.
    */
   ngOnInit(): void {
-  this.bookService.getBooks().subscribe((response: any) => {
-    console.log('Books API response:', response);
+  this.bookService.getBooks().subscribe((response: Book[]) => {
     if (Array.isArray(response)) {
       this.books.set(response);
     } else if (response && Array.isArray((response as any).books)) {

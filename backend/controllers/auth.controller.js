@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt, { hash } from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
 import dotenv from 'dotenv';
@@ -13,7 +13,7 @@ const authController = {
 
   //Signup: Register User
   signup: async (req, res) => {
-    const { email, password, name } = req.body;
+    const {name, email, password} = req.body;
 
     try {
       if (User.findByEmail(email)) {
@@ -21,8 +21,10 @@ const authController = {
       }
 
       const normalizedPassword = password.trim();
-      const hashedPassword = await bcrypt.hash(normalizedPassword, 10);
-      User.create({ name, email, password: hashedPassword });
+      const hashedPassword = await bcrypt.hash(normalizedPassword, 10); 
+
+
+      User.create({name,  email, password: hashedPassword});
 
       res.status(201).json({ message: 'User registered successfully.' });
     } catch (error) {

@@ -9,6 +9,8 @@ import { PageNotFoundComponent } from "./shared/components/page-not-found/page-n
 import {AdminGuard} from "../app/core/guards/auth.guard"
 import { UserGuard } from "./core/guards/user.guard";
 
+// AppRoutingModule defines the routes for the application.
+// It includes routes for authentication, home, library, and admin features.
 const routes: Routes=[
      { path: '', redirectTo: 'login', pathMatch: 'full' }, // show login first
   { path: 'signup', component: SignupComponent },
@@ -35,6 +37,8 @@ const routes: Routes=[
   { path: '**', component: PageNotFoundComponent }
 ];
 
+// AppRoutingModule is the main routing module for the application.
+// It imports the RouterModule and configures the routes defined above.
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

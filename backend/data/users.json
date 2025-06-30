@@ -18,5 +18,89 @@
     "id": "b610ff9e-65c2-483b-b48b-2ff277ca9f5a",
     "email": "admin@example.com",
     "password": "$2b$10$etGiwfmYkGGTOPW1VVIyiezsO9b5YSRWY21m2fj1itbgmPPxjV262"
+  },
+  {
+    "id": "3fed063a-dd0c-44d1-a2e7-f8a811de7616",
+    "email": "wtt@gmail.com",
+    "password": "$2b$10$cnZlfvjNv4L3PBEWG7Th7e44Ujq14evpL7ssmFxPTFZt1ka5lkRuC"
+  },
+  {
+    "id": "8b069876-d5b1-47b5-989b-46a20ce3e94c",
+    "email": "yatigautam23@gmail.com",
+    "password": "$2b$10$j8l4Alhyv6C40fHIj5bVnejsKgg5A7WAF7qlR4mvxzhXRR0Ip4nAa"
+  },
+  {
+    "id": "7cb1d9b0-e992-4f49-aab5-125bc05473c5",
+    "name": "yati",
+    "email": "yati21@gmail.com",
+    "password": "$2b$10$HWL5.lk6Xtc10oXXGLj.zeUkp2nfLJ43m0CIYcnd4YCw3vmZBN7c6"
+  },
+  {
+    "id": "20983b0f-94f6-4a60-b025-c7bf81db6af5",
+    "name": "wtt",
+    "email": "yati122@gmail.com",
+    "password": "$2b$10$vHLapDvo5lITeT8F.NFD8uph7qpHt.pWRzqRnMIOApjkVhifD5v22"
+  },
+  {
+    "id": "cb347457-2f87-438d-9f29-cbece7e68c73",
+    "name": "ssss",
+    "email": "airiraghav@gmail.com",
+    "password": "$2b$10$EWtFHmOZ56ljdQSlNjH6yeZ4CfdVZfMskQfNu6PmRfzjYApBaqa2O"
+  },
+  {
+    "id": "28e62881-abb6-41e4-a0b4-b09b4ffa4cb9",
+    "name": "yati",
+    "email": "yati@gmail.com",
+    "password": "$2b$10$GiJ65WVuLulE/jUCebXnX.hxslidgxIK4JOqB0jvKiMpAMiuLxY7a"
+  },
+  {
+    "id": "47139cc6-7c3e-4ef8-820f-f4f475d4e539",
+    "name": "ASD",
+    "email": "alf@gmail.com",
+    "password": "$2b$10$SC2wRDFdOMNY/JfGMdkGsOb5E3uYX8iHYnw4gSASeC1n/9l1I.27S",
+    "confirmPassword": "$2b$10$DrnT2cNgHA7VFy1zZbXNGuZzBrkDsnFxfEIZkcHj3nmJ5YeBMP6q6"
+  },
+  {
+    "id": "9c714fa0-7a3a-4b1e-9e4e-b07209c2c80b",
+    "name": "aaaa",
+    "email": "aa@gmail.com",
+    "password": "$2b$10$AKqBWzbqh4S5/.Bwhvtx9ecAQjaQnbAZOLhKnbzJiiZS9/XM4WPRy",
+    "confirmPassword": "$2b$10$cS7oKtPRhNz2g3KfqagN7uA0uLnWd/33yuC1vqcFXaHkfh.We2iva"
+  },
+  {
+    "id": "789a5822-b413-4513-b649-53b51a17ac6d",
+    "name": "Wtt",
+    "email": "yati23@gmail.com",
+    "password": "$2b$10$dTcvLWBWY/epjq2MRKgBGe1MmqeKUfVPHXhv4tIUlMzUcjggjYBP2",
+    "confirmPassword": "$2b$10$gyPvJC2WaCY9/wwh.XCB9eM0NUnAj4UiAdWY6Q6cZ3ZFbUVFAylK2"
+  },
+  {
+    "id": "309fa65e-5f51-4634-a9d8-479aaa191ebc",
+    "name": "Wtt",
+    "email": "yati23@gmail.com",
+    "password": "$2b$10$iEZuu9C1QwPvHchR.88jUuDAt2qf8HoBz/WYI3J4m0YVeYfsxa6R2",
+    "confirmPassword": "$2b$10$gBSlXZQ5w4OgWnzQBMGcJuIeL1d5Vx3suZwtsJ5ttXkvvaqaL6RCi"
+  },
+  {
+    "id": "342fd9bf-0aab-4010-a888-796656877ce9",
+    "email": "yat@gmail.com",
+    "password": "$2b$10$eJgb4PgbaLy08EZL3/lYcOaYDm1Be9hSY0SKqXwtptCFu2o25mU/2"
+  },
+  {
+    "id": "4b4179b9-174e-4141-8fcd-9f161aae85bc",
+    "email": "fds@gmail.com",
+    "password": "$2b$10$Re3hQM5TkN.deRd1tDx.zu1h7RrhLF/RWv7ljwS6RAoX7diF3PVXm"
+  },
+  {
+    "id": "db84f81e-fa6b-4684-b21f-76c9705ac372",
+    "name": "yati",
+    "email": "yati45@gmail.com",
+    "password": "$2b$10$10RdISKy1j2EOWHfkU8DVuThCrpQ5p0C3ATA6YzevjTOHh3M1Slie"
+  },
+  {
+    "id": "b0c4ec81-6164-4e2b-a538-2cff25a47391",
+    "name": "manu",
+    "email": "manu98@gmail.com",
+    "password": "$2b$10$FVNTcgIFgj3FaBpRCd4K3unINVu/QgFYUy4egyzVXkp621rR7Yife"
   }
 ]
